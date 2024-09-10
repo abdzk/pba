@@ -1,0 +1,37 @@
+/* Les transitions de la page */
+.slide-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.slide-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: transform 300ms ease-out, opacity 300ms ease-out;
+}
+.slide-exit {
+    transform: translateX(0);
+    opacity: 1;
+}
+.slide-exit-active {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform 300ms ease-in, opacity 300ms ease-in;
+}
+
+/* Styles pour la page À propos */
+.about-page {
+    text-align: center;
+    padding: 50px;
+    background: white; /* Assurez-vous que le fond est blanc ou la couleur de votre choix */
+}
+
+/* Styles pour la flèche */
+.arrow {
+    font-size: 3em;
+    color: #e8088f;
+    position: fixed; /* Fixe la position de la flèche */
+    right: 20px; /* Positionne la flèche à droite de la page */
+    top: 50%; /* Positionne la flèche au milieu verticalement */
+    transform: translateY(-50%); /* Centre la flèche verticalement */
+    cursor: pointer;
+}
