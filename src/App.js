@@ -4,6 +4,7 @@ import ParticleBackground from './components/ParticleBackground';
 import About from './components/About';
 import './SlideTransition.css';
 
+
 function App() {
     const [showAbout, setShowAbout] = useState(false);
 

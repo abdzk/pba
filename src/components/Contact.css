@@ -1,0 +1,77 @@
+/* src/components/Contact.css */
+
+/* Section Contact */
+#contact {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    margin-top: 0; /* Supprimer l'espace au-dessus de la section */
+}
+
+/* Styles pour le titre de la section */
+#contact h1 {
+    margin-top: 0; /* Supprimer la marge au-dessus du titre */
+    margin-bottom: 20px; /* Ajuster l'espace sous le titre si nécessaire */
+}
+
+/* Formulaire de contact */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour les labels du formulaire */
+#contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Styles pour les champs du formulaire */
+#contact-form input,
+#contact-form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Styles pour la zone de texte */
+#contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Styles pour le bouton de soumission */
+#contact-form input[type="submit"] {
+    background-color: #e06cb4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+#contact-form input[type="submit"]:hover {
+    background-color: #d05a9b;
+}
+
+/* Styles pour le message de confirmation */
+.confirmation-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 20px; /* Espacement au-dessus du message */
+}
