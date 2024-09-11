@@ -1,5 +1,5 @@
 // src/components/About.js
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './About.css';
 import ABPortfolio from '../img/portfolio.webp';
 import Interhop from '../img/interhop.webp';
@@ -14,12 +14,15 @@ import FelicieColin from '../img/feliciecolin.webp';
 import Mamsweb from '../img/mamsweb.webp';
 import Falbala from '../img/falbalasfabala.webp';
 import Contact from './Contact'; // Importation du composant Contact
-import { initializeEmailJS, sendForm } from '../services/emailService';
+import {initializeEmailJS, sendForm} from '../services/emailService';
+import CVImage from '../img/CV_AuroreBudzik.webp';
+import aurorePhoto from '../img/auroreBudzik.webp';
 
 
 function About() {
     const form = useRef();
     const [activeLink, setActiveLink] = useState('');
+    const [showCv, setShowCv] = useState(false); // Déclaration de l'état pour afficher/masquer le CV
 
     useEffect(() => {
         initializeEmailJS();
@@ -46,6 +49,23 @@ function About() {
         };
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        const progressBars = document.querySelectorAll('.progress-container');
+        progressBars.forEach((bar) => observer.observe(bar));
+
+        return () => {
+            progressBars.forEach((bar) => observer.unobserve(bar));
+        };
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         sendForm(form.current)
@@ -56,6 +76,13 @@ function About() {
                 console.log('FAILED...', error);
             });
     };
+
+    const handleShowCv = () => {
+        console.log('Button clicked, toggling CV visibility');
+        setShowCv(!showCv);
+    };
+
+
 
     return (
         <div className="about-container">
@@ -71,45 +98,82 @@ function About() {
             {/* Sections */}
             <section id="about" className="section">
                 <h1>À propos de moi</h1>
-                <p> Bonjour ! Je suis Aurore Budzik, une développeuse freelance spécialisée dans le développement web.
-                    Je suis passionnée par la création de sites web interactifs et réactifs.
-                    Voici quelques informations sur mon parcours et mes compétences.
-                </p>
+                <div className="ab-container">
+                    <img src={aurorePhoto} alt="Aurore Budzik" className="about-photo" />
+                    <div className="about-content">
+                        <p className="p-about">
+                            Bonjour, je suis Aurore Budzik, une développeuse freelance spécialisée dans le développement web.
+                            Je suis passionnée par la création de sites web interactifs et réactifs, et je souhaite partager
+                            avec vous quelques éléments sur mon parcours et mes compétences.
+                        </p>
+                        <p className="p-about">
+                            Après plusieurs années d'expérience dans la restauration, j'ai décidé de changer de carrière et
+                            de me consacrer pleinement au développement web. J'ai suivi une formation intensive à l'école
+                            informatique ENI, où j'ai acquis des compétences solides en HTML, CSS, PHP et JavaScript, ainsi que
+                            dans les frameworks populaires comme Symfony et Angular.
+                        </p>
+                        <p className="p-about">
+                            Mon parcours m'a également permis de développer des compétences en gestion de projet et en travail
+                            d'équipe, grâce aux projets de groupe et au stage en entreprise que j'ai réalisés. Aujourd'hui,
+                            je suis en quête d'opportunités pour mettre en pratique mes compétences et contribuer à des projets
+                            stimulants. Mon expérience variée me permet d'aborder les défis avec créativité et pragmatisme.
+                            Je suis enthousiaste à l'idée de collaborer avec vous et de contribuer au succès de vos projets.
+                        </p>
+                    </div>
+                </div>
+                {/* Barres de progression */}
+                <h2>Compétences</h2>
+                <div className="competences-container">
+                    <div className="competences">
+                        <div className="progress-container" style={{'--progress-width': '90%'}}>
+                            <div className="progress-bar">
+                                <div className="progress-fill">HTML/CSS</div>
+                            </div>
+                        </div>
+                        <div className="progress-container" style={{'--progress-width': '85%'}}>
+                            <div className="progress-bar">
+                                <div className="progress-fill">JavaScript</div>
+                            </div>
+                        </div>
+                        <div className="progress-container" style={{'--progress-width': '75%'}}>
+                            <div className="progress-bar">
+                                <div className="progress-fill">React</div>
+                            </div>
+                        </div>
+                        <div className="progress-container" style={{'--progress-width': '70%'}}>
+                            <div className="progress-bar">
+                                <div className="progress-fill">PHP</div>
+                            </div>
+                        </div>
+                        <div className="progress-container" style={{'--progress-width': '65%'}}>
+                            <div className="progress-bar">
+                                <div className="progress-fill">Symfony</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Section CV */}
+                <button onClick={handleShowCv} className="cv-button">
+                    {showCv ? 'Masquer mon CV' : 'Visualiser mon CV'}
+                </button>
 
-                <p>
-                    Bonjour,
-                    Je suis une développeuse web passionnée et motivée, qui a décidé
-                    de changer de carrière après une expérience
-                    plusieurs années dans la restauration. J'ai suivi une formation
-                    auprès de l'école informatique ENI afin de me spécialiser dans
-                    le développement web et acquérir les compétences nécessaires
-                    pour réussir dans ce domaine en constante évolution.
+                {showCv && (
+                    <div className="cv-section">
+                        <img src={CVImage} alt="Mon CV" className="cv-image" />
+                    </div>
+                )}
 
-                    Au cours de ma formation, j'ai appris les langages de
-                    programmation tels que HTML, CSS, PHP et JavaScript, ainsi que
-                    les frameworks populaires comme Symfony et Angular. J'ai
-                    également acquis de solides compétences en gestion de projet et
-                    en travail d'équipe, grâce aux projets en groupe et au stage en
-                    entreprise que j'ai effectués.
-                    Aujourd'hui, je suis à la recherche d'opportunités pour mettre mes compétences en pratique
-                    et contribuer à des projets passionnants.
-                    Je suis convaincue que mon parcours atypique et mon expérience
-                    dans la restauration me donnent un avantage unique en termes de créativité et de résolution de
-                    problèmes. Je suis impatiente de mettre mes services de votre
-                    entreprise et de contribuer à son succès.
-
-                </p>
             </section>
 
             {/* Section Portfolio */}
             <section id="portfolio" className="section">
                 <h1>Portfolio</h1>
-                <p>Découvrez mes projets ici...</p>
+                <p className="discover">Découvrez mes projets ici...</p>
 
                 {/* sites MadeinCalais-Shore */}
                 <div className="image-grid">
                     <div className="image-container">
-                        <img className="mic" src={Mic} alt="screenshot site Madeincalais.fr" />
+                        <img className="mic" src={Mic} alt="screenshot site Madeincalais.fr"/>
                         <div className="overlay">
                             <p>
                                 <a className="wordpress" href="https://madeincalais.fr/">
@@ -121,7 +185,7 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="shore" src={Shoredesign} alt="screenshot site Shoredesign.fr" />
+                        <img className="shore" src={Shoredesign} alt="screenshot site Shoredesign.fr"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://shoredesign.fr/">
@@ -133,9 +197,9 @@ function About() {
                         </div>
                     </div>
 
-                {/* sites felicie colin- jsdebarras */}
+                    {/* sites felicie colin- jsdebarras */}
                     <div className="image-container">
-                        <img className="fc" src={FelicieColin} alt="screenshot site feliciecolin.com" />
+                        <img className="fc" src={FelicieColin} alt="screenshot site feliciecolin.com"/>
                         <div className="overlay">
                             <p>
                                 <a className="wordpress" href="https://feliciecolin.com/">
@@ -147,7 +211,7 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="jsd" src={Jsdebarras} alt="screenshot site jsdebarras.com" />
+                        <img className="jsd" src={Jsdebarras} alt="screenshot site jsdebarras.com"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://jsdebarras.com/">
@@ -160,19 +224,19 @@ function About() {
                     </div>
                     {/* sites maitre jurion - mamsweb */}
                     <div className="image-container">
-                        <img className="kj" src={KJ} alt="screenshot site maitrekevinjurion.fr" />
+                        <img className="kj" src={KJ} alt="screenshot site maitrekevinjurion.fr"/>
                         <div className="overlay">
                             <p>
-                                    <a className="link" href="https://maitrekevinjurion.fr/">
-                                       Maitre Kevin Jurion <br />
-                                    </a><br />
+                                <a className="link" href="https://maitrekevinjurion.fr/">
+                                    Maitre Kevin Jurion <br/>
+                                </a><br/>
                                 <span className="highlight-text">HTML-CSS-JAVASCRIPT
                                 </span>
                             </p>
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="mamsweb" src={Mamsweb} alt="screenshot site mamswebconception.fr" />
+                        <img className="mamsweb" src={Mamsweb} alt="screenshot site mamswebconception.fr"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://mamswebconception.fr/">
@@ -183,13 +247,13 @@ function About() {
                             </p>
                         </div>
                     </div>
-                {/* sites potfolio - interhop */}
+                    {/* sites potfolio - interhop */}
                     <div className="image-container">
-                        <img className="ab" src={ABPortfolio} alt="screenshot portfolio" />
+                        <img className="ab" src={ABPortfolio} alt="screenshot portfolio"/>
                         <div className="overlay">
                             <p>
                                 <a className="github" href="https://github.com/abdzk/pba.git">
-                                    Mon portfolio<br />GITHUB
+                                    Mon portfolio<br/>GITHUB
                                 </a><br/><br/>
                                 <span className="highlight-text"> JavaScript React
                                 </span>
@@ -198,26 +262,26 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="interhop" src={Interhop} alt="screenshot interhop association version test" />
+                        <img className="interhop" src={Interhop} alt="screenshot interhop association version test"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://easyappointments-test.interhop.org/">
-                                    Stage à l'association INTERHOP<br />Version test
+                                    Stage à l'association INTERHOP<br/>Version test
                                 </a><br/><br/>
                                 <span className="highlight-text">
-                                    Application OpenSource : EASYAPPOINTMENT<br />
+                                    Application OpenSource : EASYAPPOINTMENT<br/>
                                     CODEIGNITER-PHP-JAVASCRIPT-JQUERY<br/>BOOSTRAP
                                 </span>
                             </p>
                         </div>
                     </div>
-                {/* sites Abcdaire-serie */}
+                    {/* sites Abcdaire-serie */}
                     <div className="image-container">
-                        <img className="abc" src={ABC} alt="screenshot de l'application ABCDaire" />
+                        <img className="abc" src={ABC} alt="screenshot de l'application ABCDaire"/>
                         <div className="overlay">
                             <p>
                                 <a className="github" href="https://github.com/abdzk/ABCDaire">
-                                    Projet personnel : ABCDaire<br />GITHUB
+                                    Projet personnel : ABCDaire<br/>GITHUB
                                 </a><br/><br/>
                                 <span className="highlight-text"> SYMFONY-PHP-BOOSTRAP (en cours...)
                                 </span>
@@ -225,11 +289,11 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="series" src={Series} alt="screenshot application de classement de séries" />
+                        <img className="series" src={Series} alt="screenshot application de classement de séries"/>
                         <div className="overlay">
                             <p>
                                 <a className="github" href="https://github.com/abdzk/series-symfony">
-                                    Projet formation : Séries<br />GITHUB
+                                    Projet formation : Séries<br/>GITHUB
                                 </a><br/><br/>
                                 <span className="highlight-text"> PHP-SYMFONY
                                 </span>
@@ -237,13 +301,13 @@ function About() {
                             </p>
                         </div>
                     </div>
-                {/* sites snapface-falabalas */}
+                    {/* sites snapface-falabalas */}
                     <div className="image-container">
-                        <img className="snapfaces" src={Snapfaces} alt="screenshot application snapface" />
+                        <img className="snapfaces" src={Snapfaces} alt="screenshot application snapface"/>
                         <div className="overlay">
                             <p>
                                 <a className="github" href="https://github.com/abdzk/facesnap">
-                                    Projet formation : Snapfaces<br />GITHUB
+                                    Projet formation : Snapfaces<br/>GITHUB
                                 </a><br/><br/>
                                 <span className="highlight-text"> TYPESCRIPT-ANGULAR
                                 </span>
@@ -251,11 +315,11 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="ff" src={Falbala} alt="screenshot site falbalasfabala.fr" />
+                        <img className="ff" src={Falbala} alt="screenshot site falbalasfabala.fr"/>
                         <div className="overlay">
                             <p>
                                 <a className="wordpress" href="https://madeincalais.fr/">
-                                    Vêtements Falbalas <br />Wordpress (en cours..)
+                                    Vêtements Falbalas <br/>Wordpress (en cours..)
                                 </a><br/><br/>
                                 <span className="highlight-text"> Wordpress (en construction)
                                 </span>
@@ -267,7 +331,7 @@ function About() {
 
             {/* Section Contact */}
             <section id="contact" className="section">
-                <Contact />
+                <Contact/>
             </section>
         </div>
     );

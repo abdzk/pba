@@ -27,6 +27,37 @@
     color: #333;
 }
 
+/* Style spécifique pour la section "À propos" */
+#about .ab-container {
+    display: flex;
+    flex-direction: row; /* Aligne les éléments horizontalement */
+    align-items: flex-start; /* Aligne les éléments en haut du conteneur */
+    width: 100%;
+    padding: 50px; /* Marge intérieure pour tout le contenu */
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
+    margin-bottom: 20px;
+}
+
+/* Style pour l'image "À propos" */
+#about .about-photo {
+    margin-right: 50px; /* Espace entre l'image et le texte */
+    max-width: 200px; /* Limite la largeur de l'image */
+    height: auto; /* Assure que l'image conserve son ratio hauteur/largeur */
+}
+
+/* Style pour le contenu "À propos" */
+#about .about-content {
+    flex: 1; /* Occupe tout l'espace restant */
+    text-align: justify; /* Aligne le texte à gauche */
+}
+#about .p-about{
+    margin-top:25px;
+}
+#about h2 {
+    margin-top: 10px; /* Ajustez cette valeur selon vos besoins */
+    margin-bottom:50px;
+    font-size: 1.8em;
+}
 /* Style pour le menu fixe - tout à gauche */
 .fixed-menu {
     position: fixed;
@@ -62,67 +93,99 @@
     text-decoration: underline;
 }
 
-
-/* Style pour le lien actif */
-.fixed-menu a.active {
-    color: black; /* Couleur pour le lien actif */
+/*------------------------------------------------*/
+/* Styles de base pour les barres de progression */
+.progress-container {
+    margin-bottom: 10px; /* Réduit l'espace sous chaque barre de progression */
 }
 
+/* Style pour chaque barre de progression */
+.progress-bar {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px; /* Réduit la hauteur de la barre */
+    width: 100%;
+}
+
+/* Style pour le remplissage de la barre de progression */
+.progress-fill {
+    height: 100%;
+    background-color: #062f57; /* Changez cette couleur selon votre préférence */
+    width: 0; /* Initialement à 0 */
+    text-align: center;
+    line-height: 15px; /* Ajuste le centrage vertical du texte */
+    color: white;
+    font-weight: bold;
+    border-radius: 5px 0 0 5px;
+    transition: width 1s ease-in-out; /* Ajoute une transition fluide */
+}
+
+/* Classe ajoutée lorsque la barre de progression est visible */
+.visible .progress-fill {
+    width: var(--progress-width); /* La largeur sera définie dynamiquement */
+}
+
+/* Center the competences section horizontally */
+.competences-container {
+    display: flex;
+    justify-content: center;
+}
+
+.competences {
+    width: 50%;
+}
+/* Container for the CV button */
+.cv-button-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 20px; /* Space between the competences and the button */
+}
+
+.cv-button {
+    display: inline-block;
+    margin: 50px 0;
+    padding: 10px 20px;
+    background-color: #e06cb4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Roboto Mono Light";
+    font-size: 1.2em;
+}
+
+.cv-section {
+    display: block;
+    margin-top: 20px;
+}
+
+.cv-image {
+    max-width: 50%;
+    height: auto;
+}
+
+
+
+
+
+/*------------------------------------------------*/
+
+#portfolio h1{
+    margin-bottom:50px;
+    margin-top: 50px;
+}
+
+#portfolio .discover{
+    margin-bottom: 50px;
+}
 /* Style pour le container d'images */
 .section {
     padding: 50px;
 }
 
-.img-1, .img-2, .img-3, .img-4, .img-5, .img-6 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
-    gap: 20px; /* Espace entre les images */
-    margin: 20px 0; /* Espace entre les sections d'images */
-}
-
-/* Style pour les images et les containers */
-.image-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.image-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Style pour l'overlay */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Couche semi-transparente */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
 .image-container:hover .overlay {
     opacity: 1;
-}
-
-/* Style pour les liens dans l'overlay */
-.overlay a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.overlay a:hover {
-    text-decoration: underline;
 }
 
 /* Grille des images */
@@ -154,122 +217,62 @@
     border-radius: 50%; /* Initialement circulaire */
     transition: border-radius 0.4s ease, transform 0.4s ease;
 }
-
 /* Effet au survol */
 .image-container:hover img {
     border-radius: 0; /* Redevenir rectangulaire */
     transform: scale(1); /* Réinitialiser l'échelle pour ne pas déformer */
 }
-
-/* Style des overlays (si nécessaire) */
+/* Style pour l'overlay */
 .overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couche semi-transparente */
     color: #fff;
-    text-align: center;
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
+}
+/* Style pour les liens dans l'overlay */
+.overlay a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.overlay a:hover {
+    text-decoration: underline;
 }
 
-.image-container:hover .overlay {
-    opacity: 1;
-}
 .highlight-text {
     color: white; /* Choisissez la couleur rose que vous souhaitez */
 }
 
 
+/*-----------------------------------------------*/
 
 /* Section Contact */
 #contact {
     padding: 20px;
 }
 
-/* About.css */
 
-/* Section Contact */
-#contact {
-    padding: 20px;
+
+
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur mobile */
+    }
 }
 
-/* Formulaire de contact */
-
-
-/* Section Contact */
-#contact {
-    padding: 20px;
-    display: flex;
-    justify-content: center; /* Centre le formulaire horizontalement */
-    align-items: center; /* Centre le formulaire verticalement */
-    min-height: 100vh; /* Assure que la section occupe toute la hauteur de l'écran */
-    background-color: #f9f9f9; /* Couleur de fond de la section */
-}
-
-/* Formulaire de contact */
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px; /* Réduit la largeur maximale du formulaire */
-    width: 100%; /* Assure que le formulaire utilise toute la largeur disponible jusqu'à max-width */
-    margin: 0 auto;
-    background-color: #ffffff; /* Couleur de fond du formulaire */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#contact-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-#contact-form input,
-#contact-form textarea {
-    width: calc(100% - 22px); /* Ajuste la largeur pour tenir compte du padding */
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-#contact-form textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-#contact-form input[type="submit"] {
-    background-color: #e06cb4; /* Couleur de fond du bouton */
-    color: #fff;
-    border: none;
-    padding:10px 30px; /* Réduit le padding pour un bouton plus petit */
-    font-size: 12px; /* Taille de la police ajustée */
-    cursor: pointer;
-    border-radius: 4px;
-    align-self: center; /* Centre le bouton horizontalement */
-    margin-top: 10px; /* Marge au-dessus du bouton */
-}
-
-#contact-form input[type="submit"]:hover {
-    background-color: #d05a9b; /* Couleur de fond au survol */
-}
-
-
-/* src/components/About.css */
-.cv-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #e06cb4;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.cv-button:hover {
-    background-color: #c05b9f;
+@media (max-width: 480px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+    }
 }

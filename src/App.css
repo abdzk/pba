@@ -9,12 +9,7 @@
   text-align: center; /* Centre le texte */
 }
 
-/* Styles pour h1 et p */
-h1, p {
-  font-size: 3.5em;
-  color: #e8088f;
-  margin: 0;
-}
+
 
 /* App.css */
 .arrow-link {
