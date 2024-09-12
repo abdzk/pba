@@ -1,4 +1,7 @@
-/* Style pour le menu fixe à gauche */
+
+body{
+    background-color: #f4efef;
+}/* Style pour le menu fixe à gauche */
 .fixed-menu {
     position: fixed; /* Fixe le menu à une position spécifique dans la fenêtre d'affichage */
     top: 50%; /* Positionne le menu à mi-hauteur de la fenêtre */

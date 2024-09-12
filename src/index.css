@@ -1,18 +1,20 @@
-/* src/index.css */
+/* ---- Réinitialisation des marges et des paddings pour le body ---- */
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden; /* Prevent scrollbars */
+  margin: 0; /* Supprime les marges par défaut du body */
+  padding: 0; /* Supprime les espacements internes par défaut du body */
+  overflow: hidden; /* Empêche l'apparition de barres de défilement */
 }
 
+/* ---- Styles pour le conteneur principal de l'application ---- */
 .App {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  position: relative; /* Permet au contenu enfant de se positionner relativement */
+  height: 100vh; /* Définit la hauteur à 100% de la hauteur de la fenêtre */
+  width: 100vw; /* Définit la largeur à 100% de la largeur de la fenêtre */
+  overflow: hidden; /* Empêche le débordement du contenu au-delà des dimensions de l'élément */
 }
 
+/* ---- Styles pour le conteneur du contenu principal ---- */
 .content {
-  position: relative;
-  z-index: 1; /* Ensure content is above particles */
+  position: relative; /* Permet aux éléments enfants d'utiliser des positionnements relatifs */
+  z-index: 1; /* Assure que le contenu est au-dessus des autres éléments ayant un z-index plus bas, comme les particules */
 }
