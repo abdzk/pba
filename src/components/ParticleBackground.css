@@ -1,49 +1,66 @@
-/* src/components/ParticleBackground.css */
 /* ---- reset ---- */
+
+/* Réinitialise les marges du corps pour une mise en page cohérente */
 body {
-    margin: 0;
-    font: normal 75% 'Roboto Mono', monospace, sans-serif;
+    margin: 0; /* Supprime les marges par défaut */
+    font: normal 75% 'Roboto Mono', monospace, sans-serif; /* Définit la police et la taille par défaut */
 }
 
+/* Assure que le canvas s'affiche correctement */
 canvas {
-    display: block;
-    vertical-align: bottom;
+    display: block; /* Évite les espaces sous le canvas */
+    vertical-align: bottom; /* Aligne le canvas au bas de la ligne */
 }
 
 /* ---- particles.js container ---- */
+
+/* Conteneur pour les particules, souvent utilisé pour les arrière-plans animés */
 #particles-js {
-    position: fixed; /* Fixe le conteneur des particules à la fenêtre */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #9cbece; /* Couleur de fond si vous ne mettez pas d'image */
-    background-image: url(""); /* Laissez vide ou ajoutez l'URL de l'image si nécessaire */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    z-index: -1; /* Assure que les particules sont derrière le contenu */
+    position: fixed; /* Fixe le conteneur à la fenêtre d'affichage */
+    top: 0; /* Aligne le conteneur en haut */
+    left: 0; /* Aligne le conteneur à gauche */
+    width: 100%; /* Occupe toute la largeur de la fenêtre */
+    height: 100%; /* Occupe toute la hauteur de la fenêtre */
+    background-color: #9cbece; /* Couleur de fond si aucune image de fond n'est définie */
+    background-image: url(""); /* Laissez vide ou ajoutez l'URL de l'image de fond si nécessaire */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image de fond */
+    background-size: cover; /* Couvre toute la surface du conteneur avec l'image de fond */
+    background-position: center; /* Centre l'image de fond dans le conteneur */
+    z-index: -1; /* Place les particules derrière le contenu principal */
 }
 
 /* ---- Styles pour le texte centré ---- */
+
+/* Conteneur principal de l'application, centré verticalement et horizontalement */
 .App {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centre verticalement */
-    align-items: center; /* Centre horizontalement */
-    height: 100vh; /* Hauteur de la fenêtre */
-    text-align: center; /* Centre le texte */
+    position: relative; /* Positionnement relatif pour permettre le positionnement absolu des éléments enfants */
+    display: flex; /* Utilisation de Flexbox pour la mise en page */
+    flex-direction: column; /* Aligne les éléments enfants en colonne */
+    justify-content: center; /* Centre les éléments enfants verticalement */
+    align-items: center; /* Centre les éléments enfants horizontalement */
+    height: 100vh; /* Hauteur de la fenêtre d'affichage */
+    text-align: center; /* Centre le texte à l'intérieur du conteneur */
     z-index: 1; /* Assure que le texte est au-dessus des particules */
 }
 
-/* Enlève le compteur de particules */
+/* Cache les statistiques des particules, si utilisé */
 .count-particles, #stats {
-    display: none;
+    display: none; /* Masque ces éléments */
 }
 
+/* Styles pour les titres et les paragraphes */
 h1, p {
-    font-size: 3.5em;
-    color: #e8088f;
-    margin: 0; /* Enlève les marges par défaut */
+    font-size: 3.5em; /* Définit la taille de la police pour les titres et les paragraphes */
+    color: #e8088f; /* Définit la couleur du texte */
+    margin: 0; /* Supprime les marges par défaut pour un espacement cohérent */
+}
+
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 480px */
+@media (max-width: 480px) {
+    h1, p {
+        font-size: 1.5em; /* Réduit la taille de la police pour les écrans plus petits */
+        color: #e8088f; /* Maintient la couleur du texte */
+        margin: 0; /* Supprime les marges par défaut pour un espacement cohérent */
+    }
 }

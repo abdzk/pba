@@ -1,29 +1,29 @@
 /* Styles pour le conteneur principal */
 .App {
-  position: relative;
-  height: 100vh; /* Assure que l'élément prend toute la hauteur de la page */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centre le contenu verticalement */
-  align-items: center; /* Centre le contenu horizontalement */
-  text-align: center; /* Centre le texte */
+  position: relative; /* Permet au conteneur d'être positionné relativement à son positionnement normal */
+  height: 100vh; /* Assure que l'élément prend toute la hauteur de la page (viewport) */
+  display: flex; /* Utilise Flexbox pour la disposition des éléments enfants */
+  flex-direction: column; /* Aligne les éléments enfants verticalement */
+  justify-content: center; /* Centre le contenu verticalement dans le conteneur */
+  align-items: center; /* Centre le contenu horizontalement dans le conteneur */
+  text-align: center; /* Centre le texte à l'intérieur du conteneur */
 }
 
-
-
-/* App.css */
+/* Styles pour le lien de flèche */
 .arrow-link {
-  position: fixed;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3.5em;
-  color: #e8088f;
-  text-decoration: none;
-  z-index: 10; /* S'assurer que la flèche est au-dessus des autres éléments */
+  position: fixed; /* Positionne l'élément par rapport à la fenêtre d'affichage */
+  right: 20px; /* Positionne l'élément à 20px du bord droit de la fenêtre */
+  top: 50%; /* Positionne l'élément à mi-hauteur de la fenêtre */
+  transform: translateY(-50%); /* Centre verticalement l'élément par rapport à son propre centre */
+  font-size: 3.5em; /* Définit la taille de la police pour la flèche */
+  color: #e8088f; /* Définit la couleur du texte de la flèche */
+  text-decoration: none; /* Supprime le soulignement par défaut des liens */
+  z-index: 10; /* Assure que la flèche est au-dessus des autres éléments */
 }
 
+/* Styles pour le lien de flèche au survol */
 .arrow-link:hover {
-  color: #ff0080;
+  color: #ff0080; /* Change la couleur de la flèche lorsqu'elle est survolée */
 }
+
 

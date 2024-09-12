@@ -1,77 +1,109 @@
-/* src/components/Contact.css */
 
 /* Section Contact */
+/* Style pour la section de contact, centrée et espacée */
 #contact {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    margin-top: 0; /* Supprimer l'espace au-dessus de la section */
+    padding: 20px; /* Ajoute de l'espace intérieur autour du contenu */
+    display: flex; /* Utilise Flexbox pour la mise en page */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    margin-bottom: 50px; /* Ajoute de l'espace en bas de la section */
+    margin-top: 0; /* Supprime l'espace au-dessus de la section */
 }
-
 /* Styles pour le titre de la section */
 #contact h1 {
-    margin-top: 30px; /* Supprimer la marge au-dessus du titre */
-    margin-bottom: 50px; /* Ajuster l'espace sous le titre si nécessaire */
+    margin-top: 30px; /* Ajoute de l'espace au-dessus du titre */
+    margin-bottom: 50px; /* Ajuste l'espace sous le titre */
 }
 
 /* Formulaire de contact */
 #contact-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+    display: flex; /* Utilise Flexbox pour le formulaire */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    max-width: 500px; /* Limite la largeur du formulaire */
+    width: 100%; /* Assure que le formulaire prend toute la largeur disponible */
+    margin: 0 auto; /* Centre le formulaire horizontalement */
+    background-color: #ffffff; /* Définit la couleur de fond du formulaire */
+    padding: 20px; /* Ajoute de l'espace intérieur autour du contenu */
+    border-radius: 8px; /* Arrondit les coins du formulaire */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ajoute une ombre portée au formulaire */
+    margin-top: 30px; /* Ajoute de l'espace au-dessus du formulaire */
 }
-
 /* Styles pour les labels du formulaire */
 #contact-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: bold; /* Rend le texte des labels en gras */
+    margin-bottom: 5px; /* Ajoute de l'espace sous chaque label */
 }
-
-/* Styles pour les champs du formulaire */
+/* Style pour les champs de texte et les zones de texte dans le formulaire */
 #contact-form input,
 #contact-form textarea {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    width: calc(100% - 22px); /* Ajuste la largeur pour compenser le padding et la bordure */
+    padding: 10px; /* Ajoute de l'espace intérieur dans les champs */
+    margin-bottom: 15px; /* Ajoute de l'espace sous chaque champ */
+    border: 1px solid #ddd; /* Définit la couleur de la bordure des champs */
+    border-radius: 4px; /* Arrondit les coins des champs */
 }
-
 /* Styles pour la zone de texte */
 #contact-form textarea {
-    resize: vertical;
-    min-height: 150px;
+    resize: vertical; /* Permet le redimensionnement vertical de la zone de texte */
+    min-height: 150px; /* Définit une hauteur minimale pour la zone de texte */
 }
-
 /* Styles pour le bouton de soumission */
 #contact-form input[type="submit"] {
-    background-color: #e06cb4;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    align-self: center;
-    margin-top: 10px;
+    background-color: #e06cb4; /* Définit la couleur de fond du bouton */
+    color: #fff; /* Définit la couleur du texte du bouton */
+    border: none; /* Supprime la bordure du bouton */
+    padding: 10px 20px; /* Ajoute de l'espace intérieur dans le bouton */
+    font-size: 14px; /* Définit la taille de la police du bouton */
+    cursor: pointer; /* Change le curseur au survol pour indiquer que le bouton est cliquable */
+    border-radius: 4px; /* Arrondit les coins du bouton */
+    align-self: center; /* Centre le bouton horizontalement */
+    margin-top: 10px; /* Ajoute de l'espace au-dessus du bouton */
 }
-
+/* Change la couleur de fond du bouton lorsqu'on passe la souris dessus */
 #contact-form input[type="submit"]:hover {
-    background-color: #d05a9b;
+    background-color: #d05a9b; /* Couleur de fond au survol */
+}
+.confirmation-message {
+    color: green; /* Définit la couleur du texte du message de confirmation */
+    font-size: 16px; /* Définit la taille de la police du message */
+    margin-top: 20px; /* Ajoute de l'espace au-dessus du message */
 }
 
-/* Styles pour le message de confirmation */
-.confirmation-message {
-    color: green;
-    font-size: 16px;
-    margin-top: 20px; /* Espacement au-dessus du message */
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 768px */
+@media (max-width: 768px) {
+    /* Styles pour le titre de la section */
+    #contact h1 {
+        margin-top: 30px; /* Ajoute de l'espace au-dessus du titre */
+        margin-bottom: 30px; /* Ajuste l'espace sous le titre */
+    }
+    /* Section Contact */
+    #contact {
+        padding: initial; /* Réinitialise le padding pour les petits écrans */
+        align-items: center; /* Centre les éléments horizontalement */
+    }
+    /* Formulaire de contact */
+    #contact-form {
+        max-width: initial; /* Réinitialise la largeur maximale pour les petits écrans */
+        width: 500px; /* Définit une largeur fixe pour le formulaire */
+    }
+}
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 480px */
+@media (max-width: 480px) {
+    /* Styles pour le titre de la section */
+    #contact h1 {
+        margin-top: 30px; /* Ajoute de l'espace au-dessus du titre */
+        margin-bottom: 30px; /* Ajuste l'espace sous le titre */
+    }
+    /* Section Contact */
+    #contact {
+        padding: initial; /* Réinitialise le padding pour les très petits écrans */
+        align-items: center; /* Centre les éléments horizontalement */
+    }
+    /* Formulaire de contact */
+    #contact-form {
+        max-width: initial; /* Réinitialise la largeur maximale pour les très petits écrans */
+        width: initial; /* Réinitialise la largeur pour les très petits écrans */
+    }
 }

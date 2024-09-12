@@ -1,99 +1,105 @@
-/* Style pour la page "À propos" */
+/* Style pour le menu fixe à gauche */
+.fixed-menu {
+    position: fixed; /* Fixe le menu à une position spécifique dans la fenêtre d'affichage */
+    top: 50%; /* Positionne le menu à mi-hauteur de la fenêtre */
+    left: 0; /* Aligne le menu tout à gauche de la fenêtre */
+    transform: translateY(-50%); /* Centre verticalement le menu en le décalant de -50% de sa propre hauteur */
+    background-color: #e06cb4; /* Définit la couleur de fond du menu */
+    padding: 10px; /* Ajoute un espace intérieur autour du contenu du menu */
+    border-radius: 5px; /* Arrondit les coins du menu */
+    z-index: 1000; /* Assure que le menu reste au-dessus des autres éléments de la page */
+    max-width: 200px; /* Limite la largeur maximale du menu pour éviter qu'il ne dépasse */
+    overflow: hidden; /* Évite le débordement du contenu en dehors des limites du menu */
+}
+/* Style pour les éléments de la liste dans le menu */
+.fixed-menu ul {
+     list-style-type: none; /* Supprime les puces des éléments de liste */
+     margin: 0; /* Enlève la marge par défaut */
+     padding: 0; /* Enlève le padding par défaut */
+     text-align: left; /* Aligne le texte des éléments à gauche */
+ }
+/* Style pour chaque élément de liste dans le menu */
+.fixed-menu li {
+    margin: 10px 0; /* Ajoute un espacement de 10px vertical entre les éléments de la liste */
+}
+/* Style pour les liens dans le menu */
+.fixed-menu a {
+    color: #fff; /* Définit la couleur du texte des liens en blanc */
+    text-decoration: none; /* Supprime le soulignement des liens */
+    font-size: 1.2em; /* Augmente la taille de la police des liens à 1.2 fois la taille par défaut */
+}
+/* Style pour les liens au survol */
+.fixed-menu a:hover {
+    text-decoration: underline; /* Ajoute un soulignement aux liens au survol */
+}
+/*---------------------------------------------------*/
+/* Style pour la page*/
+
 .about-container {
-    display: flex;
-    flex-direction: column; /* Aligne les sections verticalement */
-    width: 100%;
-    height: 100vh; /* Cela prend toute la hauteur de la vue */
-    overflow-y: auto; /* Permet le défilement vertical si nécessaire */
-    padding: 50px; /* Marge intérieure pour tout le contenu */
-    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
+    display: flex; /* Utilise un conteneur flex pour gérer la disposition des sections */
+    flex-direction: column; /* Aligne les sections verticalement, une après l'autre */
+    width: 100%; /* Prend toute la largeur disponible */
+    height: 100vh; /* Prend toute la hauteur visible de la fenêtre (viewport) */
+    overflow-y: auto; /* Active le défilement vertical si le contenu dépasse la hauteur de la fenêtre */
+    padding: 50px; /* Ajoute un espace intérieur de 50px autour du contenu */
+    box-sizing: border-box; /* Inclut le padding dans la largeur et la hauteur totales */
 }
 
 /* Style pour chaque section */
 .section {
-    padding: 50px;
-    text-align: center;
-    border-bottom: 1px solid #ccc; /* Optionnel : ajoute une bordure pour mieux voir les sections */
+    padding: 50px; /* Ajoute un espace intérieur de 50px autour du contenu de chaque section */
+    text-align: center; /* Centre le texte dans chaque section */
+    border-bottom: 1px solid #ccc; /* Ajoute une bordure en bas de chaque section pour les séparer visuellement */
 }
 
 /* Style pour les titres et les paragraphes */
 .section h1 {
-    font-size: 2.5em;
-    color: #e8088f;
+    font-size: 2.5em; /* Définit une grande taille de police pour les titres (2.5 fois la taille de base) */
+    color: #e8088f; /* Définit la couleur du titre avec un rose vif (#e8088f) */
 }
 
 .section p {
-    font-size: 1.5em;
-    color: #333;
+    font-size: 1.5em; /* Définit une taille de police plus grande pour les paragraphes (1.5 fois la taille de base) */
+    color: #333; /* Utilise un gris foncé (#333) pour le texte des paragraphes */
 }
 
+/*---------------------------------------------------*/
 /* Style spécifique pour la section "À propos" */
 #about .ab-container {
-    display: flex;
-    flex-direction: row; /* Aligne les éléments horizontalement */
-    align-items: flex-start; /* Aligne les éléments en haut du conteneur */
-    width: 100%;
-    padding: 50px; /* Marge intérieure pour tout le contenu */
-    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur */
-    margin-bottom: 20px;
+    display: flex; /* Utilise Flexbox pour organiser les éléments enfants */
+    flex-direction: row; /* Aligne les éléments horizontalement, en ligne */
+    align-items: flex-start; /* Aligne les éléments au début du conteneur, en haut */
+    width: 100%; /* Prend toute la largeur disponible */
+    padding: 50px; /* Ajoute un espace intérieur de 50px autour du contenu */
+    box-sizing: border-box; /* Inclut le padding dans le calcul de la largeur totale */
+    margin-bottom: 20px; /* Ajoute un espace de 20px sous le conteneur */
 }
 
 /* Style pour l'image "À propos" */
 #about .about-photo {
-    margin-right: 50px; /* Espace entre l'image et le texte */
-    max-width: 200px; /* Limite la largeur de l'image */
-    height: auto; /* Assure que l'image conserve son ratio hauteur/largeur */
+    margin-right: 50px; /* Crée un espace de 50px entre l'image et le texte à droite */
+    max-width: 200px; /* Limite la largeur maximale de l'image à 200px */
+    height: auto; /* Maintient les proportions de l'image en ajustant automatiquement la hauteur */
 }
 
 /* Style pour le contenu "À propos" */
 #about .about-content {
-    flex: 1; /* Occupe tout l'espace restant */
-    text-align: justify; /* Aligne le texte à gauche */
+    flex: 1; /* Permet au contenu de prendre tout l'espace restant disponible */
+    text-align: justify; /* Justifie le texte, aligné à gauche et à droite */
 }
-#about .p-about{
-    margin-top:25px;
+
+/* Style pour le paragraphe spécifique dans "À propos" */
+#about .p-about {
+    margin-top: 25px; /* Ajoute une marge de 25px au-dessus du paragraphe */
 }
+
+/* Style pour le titre dans la section "À propos" */
 #about h2 {
-    margin-top: 10px; /* Ajustez cette valeur selon vos besoins */
-    margin-bottom:50px;
-    font-size: 1.8em;
-}
-/* Style pour le menu fixe - tout à gauche */
-.fixed-menu {
-    position: fixed;
-    top: 50%;
-    left: 0; /* Alignement tout à gauche */
-    transform: translateY(-50%); /* Centre verticalement */
-    background-color: #e06cb4;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 1000; /* Assure que le menu reste au-dessus du contenu */
-    max-width: 200px; /* Limite la largeur pour éviter que le menu ne dépasse */
-    overflow: hidden; /* Évite tout débordement */
+    margin-top: 10px; /* Ajoute une marge de 10px au-dessus du titre */
+    margin-bottom: 50px; /* Ajoute une marge de 50px en dessous du titre */
+    font-size: 1.8em; /* Définit la taille de la police du titre à 1.8 fois la taille de base */
 }
 
-.fixed-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: left; /* Alignement du texte à gauche */
-}
-
-.fixed-menu li {
-    margin: 10px 0;
-}
-
-.fixed-menu a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-.fixed-menu a:hover {
-    text-decoration: underline;
-}
-
-/*------------------------------------------------*/
 /* Styles de base pour les barres de progression */
 .progress-container {
     margin-bottom: 10px; /* Réduit l'espace sous chaque barre de progression */
@@ -101,178 +107,339 @@
 
 /* Style pour chaque barre de progression */
 .progress-bar {
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 20px; /* Réduit la hauteur de la barre */
-    width: 100%;
+    background-color: #f3f3f3; /* Couleur de fond de la barre de progression */
+    border-radius: 5px; /* Ajoute des bords arrondis à la barre */
+    overflow: hidden; /* Cache tout débordement d'éléments à l'intérieur de la barre */
+    height: 20px; /* Définit la hauteur de la barre */
+    width: 100%; /* Prend toute la largeur disponible */
 }
 
 /* Style pour le remplissage de la barre de progression */
 .progress-fill {
-    height: 100%;
-    background-color: #062f57; /* Changez cette couleur selon votre préférence */
-    width: 0; /* Initialement à 0 */
-    text-align: center;
-    line-height: 15px; /* Ajuste le centrage vertical du texte */
-    color: white;
-    font-weight: bold;
-    border-radius: 5px 0 0 5px;
-    transition: width 1s ease-in-out; /* Ajoute une transition fluide */
+    height: 100%; /* Prend toute la hauteur de la barre de progression */
+    background-color: #062f57; /* Couleur du remplissage*/
+    width: 0; /* Initialement à 0, avant l'animation */
+    text-align: center; /* Centre le texte à l'intérieur de la barre */
+    line-height: 15px; /* Centre verticalement le texte dans la barre */
+    color: white; /* Couleur du texte */
+    font-weight: bold; /* Style de police en gras pour le texte */
+    border-radius: 5px 0 0 5px; /* Bords arrondis pour le côté gauche du remplissage */
+    transition: width 1s ease-in-out; /* Transition fluide de la largeur lors du changement */
 }
 
 /* Classe ajoutée lorsque la barre de progression est visible */
 .visible .progress-fill {
-    width: var(--progress-width); /* La largeur sera définie dynamiquement */
+    width: var(--progress-width); /* La largeur est définie dynamiquement via une variable CSS */
 }
 
-/* Center the competences section horizontally */
+/* Centre la section des compétences horizontalement */
 .competences-container {
-    display: flex;
-    justify-content: center;
+    display: flex; /* Utilise Flexbox pour gérer la mise en page */
+    justify-content: center; /* Centre horizontalement la section des compétences */
 }
 
 .competences {
-    width: 50%;
+    width: 50%; /* La section des compétences prend 50% de la largeur de son conteneur parent */
 }
-/* Container for the CV button */
+
+/* Conteneur pour le bouton de CV */
 .cv-button-container {
-    display: flex;
-    justify-content: center; /* Center the button horizontally */
-    margin-top: 20px; /* Space between the competences and the button */
+    display: flex; /* Utilise Flexbox pour la mise en page du bouton */
+    justify-content: center; /* Centre le bouton horizontalement */
+    margin-top: 20px; /* Ajoute un espace entre la section des compétences et le bouton */
 }
 
 .cv-button {
-    display: inline-block;
-    margin: 50px 0;
-    padding: 10px 20px;
-    background-color: #e06cb4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "Roboto Mono Light";
-    font-size: 1.2em;
+    display: inline-block; /* Le bouton est un élément en ligne avec des dimensions personnalisées */
+    margin: 50px 0; /* Ajoute de l'espace au-dessus et en dessous du bouton */
+    padding: 10px 20px; /* Espace intérieur du bouton (10px en haut/bas, 20px à gauche/droite) */
+    background-color: #e06cb4; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    border: none; /* Supprime la bordure par défaut */
+    border-radius: 5px; /* Arrondit les coins du bouton */
+    cursor: pointer; /* Change le curseur en pointeur lorsque l'utilisateur survole le bouton */
+    font-family: "Roboto"; /* Police spécifique pour le texte du bouton */
+    font-size: 1.2em; /* Taille de police de 1.2 fois la taille de base */
 }
 
 .cv-section {
-    display: block;
-    margin-top: 20px;
+    display: block; /* Affiche l'élément en tant que bloc */
+    margin-top: 20px; /* Ajoute un espace de 20px au-dessus de la section CV */
 }
 
 .cv-image {
-    max-width: 50%;
-    height: auto;
+    max-width: 50%; /* L'image du CV ne dépasse pas 50% de la largeur de son conteneur parent */
+    height: auto; /* L'image conserve ses proportions */
 }
-
-
-
-
-
 /*------------------------------------------------*/
-
-#portfolio h1{
-    margin-bottom:50px;
-    margin-top: 50px;
+/* Style spécifique pour la section "Portfolio" */
+/*Style pour le h1*/
+#portfolio h1 {
+    margin-bottom: 50px; /* Ajoute un espace en dessous du titre */
+    margin-top: 50px; /* Ajoute un espace au-dessus du titre */
 }
 
-#portfolio .discover{
-    margin-bottom: 50px;
+#portfolio .discover {
+    margin-bottom: 50px; /* Ajoute un espace sous le texte "Découvrez mes projets ici..." */
 }
-/* Style pour le container d'images */
+
+/* Style pour le container d'images dans la section */
 .section {
-    padding: 50px;
+    padding: 50px; /* Ajoute un espace de 50px autour de la section */
 }
 
+/* Lorsque la souris survole l'image, l'overlay devient visible */
 .image-container:hover .overlay {
-    opacity: 1;
+    opacity: 1; /* Affiche l'overlay avec une opacité maximale au survol */
 }
 
-/* Grille des images */
+/* Grille d'images avec 4 colonnes */
 .image-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Quatre colonnes */
-    gap: 15px; /* Espacement entre les images */
-    margin: 0 auto;
-    max-width: 1200px; /* Ajustez selon la largeur souhaitée */
+    display: grid; /* Utilise le système de grille pour organiser les images */
+    grid-template-columns: repeat(4, 1fr); /* Crée une grille avec 4 colonnes de largeur égale */
+    gap: 15px; /* Ajoute un espacement de 15px entre les images */
+    margin: 0 auto; /* Centre la grille horizontalement */
+    max-width: 1200px; /* Limite la largeur maximale de la grille à 1200px */
 }
 
-/* Conteneur de chaque image */
+/* Style de chaque conteneur d'image */
 .image-container {
-    position: relative;
-    overflow: hidden; /* Masquer les débordements */
-    width: 100%;
-    padding-top: 100%; /* Maintenir le rapport hauteur/largeur (1:1) */
-    margin: 15px; /* Ajouter de l'espace autour du conteneur */
+    position: relative; /* Permet de positionner l'overlay et l'image */
+    overflow: hidden; /* Masque tout débordement au-delà des limites du conteneur */
+    width: 100%; /* Prend toute la largeur disponible */
+    padding-top: 100%; /* Assure un rapport hauteur/largeur de 1:1 (carré) */
+    margin: 15px; /* Ajoute un espacement autour de chaque conteneur */
 }
 
-/* Style des images */
+/* Style pour les images */
 .image-container img {
-    position: absolute;
+    position: absolute; /* Positionne l'image par rapport à son conteneur */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%; /* Initialement circulaire */
-    transition: border-radius 0.4s ease, transform 0.4s ease;
+    width: 100%; /* L'image prend toute la largeur du conteneur */
+    height: 100%; /* L'image prend toute la hauteur du conteneur */
+    object-fit: cover; /* L'image est redimensionnée pour couvrir le conteneur sans se déformer */
+    border-radius: 50%; /* L'image est initialement circulaire */
+    transition: border-radius 0.4s ease, transform 0.4s ease; /* Ajoute une transition fluide pour le changement de forme et de transformation */
 }
-/* Effet au survol */
+
+/* Effet de survol pour l'image */
 .image-container:hover img {
-    border-radius: 0; /* Redevenir rectangulaire */
-    transform: scale(1); /* Réinitialiser l'échelle pour ne pas déformer */
+    border-radius: 0; /* L'image devient rectangulaire au survol */
+    transform: scale(1); /* Réinitialise l'échelle au survol */
 }
-/* Style pour l'overlay */
+
+/* Style pour l'overlay (texte et lien affichés sur l'image) */
 .overlay {
-    position: absolute;
+    position: absolute; /* Positionne l'overlay par rapport au conteneur */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Couche semi-transparente */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    width: 100%; /* L'overlay prend toute la largeur du conteneur */
+    height: 100%; /* L'overlay prend toute la hauteur du conteneur */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
+    color: #fff; /* Couleur du texte blanc */
+    display: flex; /* Utilise Flexbox pour centrer le texte */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    opacity: 0; /* L'overlay est initialement invisible */
+    transition: opacity 0.3s ease; /* Transition fluide pour l'opacité */
 }
+
 /* Style pour les liens dans l'overlay */
 .overlay a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+    color: #fff; /* Le texte des liens est blanc */
+    text-decoration: none; /* Supprime la décoration du lien */
+    font-weight: bold; /* Le texte est en gras */
 }
+
+/* Effet de survol pour les liens dans l'overlay */
 .overlay a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Souligne le texte lorsque la souris passe dessus */
 }
 
+/* Style pour le texte mis en valeur dans l'overlay */
 .highlight-text {
-    color: white; /* Choisissez la couleur rose que vous souhaitez */
+    color: white; /* Couleur du texte mise en valeur (blanc) */
 }
 
-
-/*-----------------------------------------------*/
-
-/* Section Contact */
-#contact {
-    padding: 20px;
-}
-
-
-
-
-
-
-/* Media queries for responsiveness */
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 768px */
 @media (max-width: 768px) {
+    /* Style pour le menu fixe en haut de la page */
+    .fixed-menu {
+        position: fixed;
+        top: 0; /* Fixe le menu en haut */
+        width: 100vw; /* Prend toute la largeur du viewport */
+        transform: translateY(0); /* Enlève le centrage vertical */
+        border-radius: 0; /* Supprime les coins arrondis */
+        padding: 10px 0;
+        max-width: none; /* Supprime la limite de largeur */
+    }
+    /* Style pour les éléments de la liste dans le menu */
+    .fixed-menu ul {
+        text-align: center; /* Centre les éléments */
+    }
+    /* Style pour chaque élément de liste dans le menu */
+    .fixed-menu li {
+        display: inline-block; /* Aligne les éléments en ligne */
+        margin: 0 15px; /* Espace entre les liens */
+    }
+    /*---------------------------------------------------*/
+    /* Style pour chaque section */
+    .section {
+        padding: initial;
+    }
+    /* Style pour les titres et les paragraphes */
+    .section h1 {
+        font-size: 1.7em;
+    }
+    .section p {
+        font-size: 1.2em;
+    }
+    /*---------------------------------------------------*/
+
+    /* Style spécifique pour la section "À propos" */
+    #about .ab-container {
+        display: initial; /* Réinitialise à la valeur par défaut pour 'display' */
+        flex-direction: initial; /* Réinitialise à 'row', la valeur par défaut pour 'flex-direction' */
+        align-items: initial; /* Réinitialise à 'stretch', la valeur par défaut pour 'align-items' */
+        padding: initial; /* Réinitialise à '0', la valeur par défaut pour 'padding' */
+        box-sizing: initial; /* Réinitialise à 'content-box', la valeur par défaut pour 'box-sizing' */
+        margin-bottom: initial; /* Réinitialise à '0', la valeur par défaut pour 'margin-bottom' */
+    }
+
+    /* Style pour le titre h2*/
+    #about h2 {
+        margin-top: 30px;
+        margin-bottom:30px;
+        font-size: 1.4em;
+
+    }
+    /* Style pour l'image "À propos" */
+    #about .about-photo {
+        margin-right: initial;
+        max-width: initial;
+        height: 150px;
+        margin-top:30px;
+    }
+
+    /*Style pour la largeur de la barre de progression*/
+    .competences {
+        width: 80%;
+    }
+    /* Style pour l'image du cv */
+    .cv-image {
+        max-width: 80%;
+    }
+    /*---------------------------------------------------*/
+    /* Style spécifique pour la section "Portfolio" */
+    /*Style pour le H1*/
+    #portfolio h1 {
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+
+    #portfolio .discover {
+        margin-bottom: 20px;
+    }
+    /* Grille d'images avec 2 colonnes */
     .image-grid {
-        grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur mobile */
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 40px;
+    }
+    /* Conteneur de chaque image */
+    .image-container {
+        margin: 0;
     }
 }
 
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 480px */
 @media (max-width: 480px) {
+    /* Style pour le menu fixe */
+    .fixed-menu {
+        top: 0;
+        width: 100vw; /* Toujours prendre toute la largeur */
+        transform: translateY(0); /* Pas de transformation verticale */
+        border-radius: 0;
+        padding: 8px 0;
+        max-width: none; /* Aucune limite de largeur */
+    }
+    /* Style pour les éléments de la liste dans le menu */
+    .fixed-menu ul {
+        text-align: center;
+    }
+    /* Style pour chaque élément de liste dans le menu */
+    .fixed-menu li {
+        display: inline-block;
+        margin: 0 10px; /* Réduction de l'espacement entre les éléments */
+    }
+    /*---------------------------------------------------*/
+    /* Style pour chaque section */
+    .section {
+        padding: initial;
+    }
+    /* Style pour les titres et les paragraphes */
+    .section h1 {
+        font-size: 1.5em;
+
+    }
+    .section p {
+        font-size: 1.2em;
+    }
+    /*---------------------------------------------------*/
+    /* Style spécifique pour la section "À propos" */
+    #about .ab-container {
+        display: initial; /* Réinitialise à la valeur par défaut pour 'display' */
+        flex-direction: initial; /* Réinitialise à 'row', la valeur par défaut pour 'flex-direction' */
+        align-items: initial; /* Réinitialise à 'stretch', la valeur par défaut pour 'align-items' */
+        padding: initial; /* Réinitialise à '0', la valeur par défaut pour 'padding' */
+        box-sizing: initial; /* Réinitialise à 'content-box', la valeur par défaut pour 'box-sizing' */
+        margin-bottom: initial; /* Réinitialise à '0', la valeur par défaut pour 'margin-bottom' */
+    }
+
+    /* Style pour l'image "À propos" */
+    #about .about-photo {
+        margin-right: initial; /* Espace entre l'image et le texte */
+        max-width: initial; /* Limite la largeur de l'image */
+        height: 80px; /* Assure que l'image conserve son ratio hauteur/largeur */
+        margin-top:30px;
+    }
+
+    /*Style pour le H2*/
+    #about h2 {
+        margin-top: 30px;
+        margin-bottom:30px;
+        font-size: 1.4em;
+    }
+    /*Style pour la largeur de la barre de progression*/
+    .competences {
+        width: 100%;
+    }
+    /* Style pour l'image du cv */
+    .cv-image {
+        max-width: 100%;
+    }
+
+    /*---------------------------------------------------*/
+    /* Style spécifique pour la section "Portfolio" */
+
+    /*Style pour le titre H1*/
+    #portfolio h1 {
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+    #portfolio .discover {
+        margin-bottom: 30px;
+    }
+
+    /* Grille d'images avec  colonne */
     .image-grid {
-        grid-template-columns: 1fr; /* Une seule colonne pour les petits écrans */
+        grid-template-columns: 1fr;
+        margin-bottom: 40px;
+    }
+    /* Conteneur de chaque image */
+    .image-container {
+        margin: 0;
     }
 }

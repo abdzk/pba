@@ -1,37 +1,52 @@
 /* Les transitions de la page */
+
+/* État initial de l'entrée d'une page */
 .slide-enter {
-    transform: translateX(100%);
-    opacity: 0;
+    transform: translateX(100%); /* Positionne l'élément hors de l'écran à droite pour le début de l'entrée */
+    opacity: 0; /* Rend l'élément complètement transparent au début de l'entrée */
 }
+
+/* État actif de l'entrée d'une page */
 .slide-enter-active {
-    transform: translateX(0);
-    opacity: 1;
-    transition: transform 300ms ease-out, opacity 300ms ease-out;
+    transform: translateX(0); /* Positionne l'élément à sa position normale pendant l'entrée */
+    opacity: 1; /* Rend l'élément complètement opaque pendant l'entrée */
+    transition: transform 300ms ease-out, opacity 300ms ease-out; /* Définit une transition fluide pour la position et l'opacité */
 }
+
+/* État initial de la sortie d'une page */
 .slide-exit {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0); /* Positionne l'élément à sa position normale au début de la sortie */
+    opacity: 1; /* Rend l'élément complètement opaque au début de la sortie */
 }
+
+/* État actif de la sortie d'une page */
 .slide-exit-active {
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: transform 300ms ease-in, opacity 300ms ease-in;
+    transform: translateX(-100%); /* Déplace l'élément hors de l'écran à gauche pendant la sortie */
+    opacity: 0; /* Rend l'élément complètement transparent pendant la sortie */
+    transition: transform 300ms ease-in, opacity 300ms ease-in; /* Définit une transition fluide pour la position et l'opacité lors de la sortie */
 }
 
 /* Styles pour la page À propos */
 .about-page {
-    text-align: center;
-    padding: 50px;
-    background: white; /* Assurez-vous que le fond est blanc ou la couleur de votre choix */
+    text-align: center; /* Centre le texte à l'intérieur du conteneur */
+    padding: 50px; /* Ajoute un espace intérieur autour du contenu */
+    background: white; /* Définit la couleur de fond de la page comme blanche */
 }
 
 /* Styles pour la flèche */
 .arrow {
-    font-size: 3em;
-    color: #e8088f;
-    position: fixed; /* Fixe la position de la flèche */
-    right: 20px; /* Positionne la flèche à droite de la page */
-    top: 50%; /* Positionne la flèche au milieu verticalement */
-    transform: translateY(-50%); /* Centre la flèche verticalement */
-    cursor: pointer;
+    font-size: 3em; /* Définit la taille de la police pour la flèche */
+    color: #e8088f; /* Définit la couleur de la flèche */
+    position: fixed; /* Fixe la position de la flèche par rapport à la fenêtre d'affichage */
+    right: 20px; /* Positionne la flèche à 20px du bord droit de la fenêtre */
+    top: 50%; /* Positionne la flèche au milieu verticalement de la fenêtre */
+    transform: translateY(-50%); /* Centre verticalement la flèche en utilisant sa hauteur */
+    cursor: pointer; /* Change le curseur en une main pour indiquer qu'il s'agit d'un élément cliquable */
+}
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 480px */
+@media (max-width: 480px) {
+    .arrow {
+        top: 55%; /* Ajuste la position verticale de la flèche pour les écrans plus petits */
+    }
 }
