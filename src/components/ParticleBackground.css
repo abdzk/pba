@@ -22,7 +22,6 @@ canvas {
     width: 100%; /* Occupe toute la largeur de la fenêtre */
     height: 100%; /* Occupe toute la hauteur de la fenêtre */
     background-color: #9cbece; /* Couleur de fond si aucune image de fond n'est définie */
-    background-image: url(""); /* Laissez vide ou ajoutez l'URL de l'image de fond si nécessaire */
     background-repeat: no-repeat; /* Empêche la répétition de l'image de fond */
     background-size: cover; /* Couvre toute la surface du conteneur avec l'image de fond */
     background-position: center; /* Centre l'image de fond dans le conteneur */

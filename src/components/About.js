@@ -1,5 +1,5 @@
-// src/components/About.js
-import React, {useEffect, useRef, useState} from 'react';
+
+import React, {useEffect, useState} from 'react';
 import './About.css';
 import ABPortfolio from '../img/portfolio.webp';
 import Interhop from '../img/interhop.webp';
@@ -14,39 +14,31 @@ import FelicieColin from '../img/feliciecolin.webp';
 import Mamsweb from '../img/mamsweb.webp';
 import Falbala from '../img/falbalasfabala.webp';
 import Contact from './Contact'; // Importation du composant Contact
-import {initializeEmailJS, sendForm} from '../services/emailService';
+import {initializeEmailJS} from '../services/emailService';
 import CVImage from '../img/CV_AuroreBudzik.webp';
 import aurorePhoto from '../img/auroreBudzik.webp';
 
 
 function About() {
-    const form = useRef();
-    const [activeLink, setActiveLink] = useState('');
-    const [showCv, setShowCv] = useState(false); // Déclaration de l'état pour afficher/masquer le CV
+    const [showCv, setShowCv] = useState(false); // Gardé pour le CV
 
     useEffect(() => {
-        initializeEmailJS();
+        initializeEmailJS(); // Initialiser EmailJS ici
 
         const handleScroll = () => {
             const sections = document.querySelectorAll('.section');
-            let current = '';
 
             sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
-                    current = section.getAttribute('id');
+
                 }
             });
-
-            setActiveLink(current);
         };
 
         window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
@@ -61,26 +53,11 @@ function About() {
         const progressBars = document.querySelectorAll('.progress-container');
         progressBars.forEach((bar) => observer.observe(bar));
 
-        return () => {
-            progressBars.forEach((bar) => observer.unobserve(bar));
-        };
+        return () => progressBars.forEach((bar) => observer.unobserve(bar));
     }, []);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        sendForm(form.current)
-            .then(() => {
-                console.log('SUCCESS!');
-            })
-            .catch((error) => {
-                console.log('FAILED...', error);
-            });
-    };
+    const handleShowCv = () => setShowCv(!showCv);
 
-    const handleShowCv = () => {
-        console.log('Button clicked, toggling CV visibility');
-        setShowCv(!showCv);
-    };
 
 
 
