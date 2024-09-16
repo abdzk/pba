@@ -17,7 +17,7 @@ import Contact from './Contact'; // Importation du composant Contact
 import {initializeEmailJS} from '../services/emailService';
 import CVImage from '../img/CV_AuroreBudzik.webp';
 import aurorePhoto from '../img/auroreBudzik.webp';
-
+import Footer from "./Footer";
 
 function About() {
     const [showCv, setShowCv] = useState(false); // Gardé pour le CV
@@ -79,8 +79,8 @@ function About() {
                     <img src={aurorePhoto} alt="Aurore Budzik" className="about-photo" />
                     <div className="about-content">
                         <p className="p-about">
-                            Bonjour, je suis Aurore Budzik, une développeuse freelance spécialisée dans le développement web.
-                            Je suis passionnée par la création de sites web interactifs et réactifs, et je souhaite partager
+                            Bonjour, je suis Aurore Budzik,développeuse freelance spécialisée dans la création de sites web
+                            interactifs et réactifs et je souhaite partager
                             avec vous quelques éléments sur mon parcours et mes compétences.
                         </p>
                         <p className="p-about">
@@ -102,6 +102,15 @@ function About() {
                 <h2>Compétences</h2>
                 <div className="competences-container">
                     <div className="competences">
+                        <div className="progress-container" style={{'--progress-width': '90%'}}>
+                            <div className="progress-bar">
+                                <div className="progress-fill">Wordpress</div>
+                            </div>
+                        </div>  <div className="progress-container" style={{'--progress-width': '90%'}}>
+                        <div className="progress-bar">
+                            <div className="progress-fill">Woo Commerce</div>
+                        </div>
+                    </div>
                         <div className="progress-container" style={{'--progress-width': '90%'}}>
                             <div className="progress-bar">
                                 <div className="progress-fill">HTML/CSS</div>
@@ -307,9 +316,13 @@ function About() {
             </section>
 
             {/* Section Contact */}
-            <section id="contact" className="section">
+            <section id="contact" className="section-contact">
                 <Contact/>
             </section>
+
+            {/*  Footer */}
+            <Footer/>
+
         </div>
     );
 }

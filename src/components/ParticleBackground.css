@@ -59,7 +59,8 @@ h1, p {
 @media (max-width: 480px) {
     h1, p {
         font-size: 1.5em; /* Réduit la taille de la police pour les écrans plus petits */
-        color: #e8088f; /* Maintient la couleur du texte */
-        margin: 0; /* Supprime les marges par défaut pour un espacement cohérent */
     }
+}
+.content{
+    margin-bottom: 50px;
 }

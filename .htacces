@@ -1,0 +1,29 @@
+# .htaccess pour réécrire les URLs et ajouter des en-têtes de sécurité
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /portfolio/
+
+    # Redirection de toutes les requêtes vers index.html sauf les fichiers et répertoires existants
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Ajouter des en-têtes de sécurité, y compris CSP
+<IfModule mod_headers.c>
+    # Content Security Policy
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; font-src 'self';"
+
+    # HSTS (HTTP Strict Transport Security) - Encourage l'utilisation de HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # X-Content-Type-Options - Empêche le navigateur de détecter le type de contenu
+    Header set X-Content-Type-Options "nosniff"
+
+    # X-Frame-Options - Empêche le site d'être chargé dans un iframe
+    Header set X-Frame-Options "DENY"
+
+    # X-XSS-Protection - Active la protection contre les attaques XSS
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

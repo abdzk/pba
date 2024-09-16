@@ -13,6 +13,12 @@
 #contact h1 {
     margin-top: 30px; /* Ajoute de l'espace au-dessus du titre */
     margin-bottom: 50px; /* Ajuste l'espace sous le titre */
+    font-size: 2.5em;
+}
+
+#contact p{
+    font-size: 1.5em;
+    color: #333;
 }
 
 /* Formulaire de contact */
@@ -87,6 +93,12 @@
         max-width: initial; /* Réinitialise la largeur maximale pour les petits écrans */
         width: 500px; /* Définit une largeur fixe pour le formulaire */
     }
+    #contact h1{
+        font-size: 1.7em;
+    }
+    #contact p{
+        font-size: 1.2em;
+    }
 }
 /*--------------------------------------------------------------------------*/
 /* Media Queries pour les écrans avec une largeur maximale de 480px */
@@ -105,5 +117,11 @@
     #contact-form {
         max-width: initial; /* Réinitialise la largeur maximale pour les très petits écrans */
         width: initial; /* Réinitialise la largeur pour les très petits écrans */
+    }
+    #contact h1{
+        font-size: 1.5em;
+    }
+    #contact p{
+        font-size: 1.2em;
     }
 }

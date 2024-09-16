@@ -1,7 +1,8 @@
 
-body{
-    background-color: #f4efef;
-}/* Style pour le menu fixe à gauche */
+body {
+    background-color: #ececec;
+}
+/* Style pour le menu fixe à gauche */
 .fixed-menu {
     position: fixed; /* Fixe le menu à une position spécifique dans la fenêtre d'affichage */
     top: 50%; /* Positionne le menu à mi-hauteur de la fenêtre */
@@ -53,6 +54,9 @@ body{
     padding: 50px; /* Ajoute un espace intérieur de 50px autour du contenu de chaque section */
     text-align: center; /* Centre le texte dans chaque section */
     border-bottom: 1px solid #ccc; /* Ajoute une bordure en bas de chaque section pour les séparer visuellement */
+}
+.section-footer{
+    text-align: center;
 }
 
 /* Style pour les titres et les paragraphes */
@@ -405,7 +409,7 @@ body{
     #about .about-photo {
         margin-right: initial; /* Espace entre l'image et le texte */
         max-width: initial; /* Limite la largeur de l'image */
-        height: 80px; /* Assure que l'image conserve son ratio hauteur/largeur */
+        height: 120px; /* Assure que l'image conserve son ratio hauteur/largeur */
         margin-top:30px;
     }
 

@@ -1,0 +1,24 @@
+
+.footer {
+    background-color: #e06cb4; /* Couleur de fond du footer */
+    text-align: center; /* Centrer le texte */
+    padding: 10px 0; /* Espacement */
+    position: fixed; /* Fixer le footer en bas */
+    bottom: 0; /* Placer au bas de la page */
+    width: 100%; /* Largeur totale */
+    left: 0; /* Placer le footer contre le bord gauche */
+}
+.copy{
+    color:white;
+    font-size: 1.3em;
+}
+/*--------------------------------------------------------------------------*/
+/* Media Queries pour les écrans avec une largeur maximale de 480px */
+@media (max-width: 480px) {
+    .footer{
+        height: 15px;
+    }
+    .copy{
+        font-size: 1em;
+    }
+}
