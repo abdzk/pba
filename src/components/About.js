@@ -1,5 +1,6 @@
 
 import React, {useEffect, useState} from 'react';
+import { Helmet } from 'react-helmet';
 import './About.css';
 import ABPortfolio from '../img/portfolio.webp';
 import Interhop from '../img/interhop.webp';
@@ -18,6 +19,8 @@ import {initializeEmailJS} from '../services/emailService';
 import CVImage from '../img/CV_AuroreBudzik.webp';
 import aurorePhoto from '../img/auroreBudzik.webp';
 import Footer from "./Footer";
+
+
 
 function About() {
     const [showCv, setShowCv] = useState(false); // Gardé pour le CV
@@ -74,9 +77,12 @@ function About() {
 
             {/* Sections */}
             <section id="about" className="section">
+                <Helmet>
+                    <link rel="canonical" href="https://aurorebudzik.fr/#about" />
+                </Helmet>
                 <h1>À propos de moi</h1>
                 <div className="ab-container">
-                    <img src={aurorePhoto} alt="Aurore Budzik" className="about-photo" />
+                    <img src={aurorePhoto} alt="Photo de Aurore Budzik" className="about-photo" />
                     <div className="about-content">
                         <p className="p-about">
                             Bonjour, je suis Aurore Budzik,développeuse freelance spécialisée dans la création de sites web
@@ -102,15 +108,6 @@ function About() {
                 <h2>Compétences</h2>
                 <div className="competences-container">
                     <div className="competences">
-                        <div className="progress-container" style={{'--progress-width': '90%'}}>
-                            <div className="progress-bar">
-                                <div className="progress-fill">Wordpress</div>
-                            </div>
-                        </div>  <div className="progress-container" style={{'--progress-width': '90%'}}>
-                        <div className="progress-bar">
-                            <div className="progress-fill">Woo Commerce</div>
-                        </div>
-                    </div>
                         <div className="progress-container" style={{'--progress-width': '90%'}}>
                             <div className="progress-bar">
                                 <div className="progress-fill">HTML/CSS</div>
@@ -152,6 +149,9 @@ function About() {
             </section>
 
             {/* Section Portfolio */}
+            <Helmet>
+                <link rel="canonical" href="https://aurorebudzik.fr/#portfolio" />
+            </Helmet>
             <section id="portfolio" className="section">
                 <h1>Portfolio</h1>
                 <p className="discover">Découvrez mes projets ici...</p>
@@ -159,7 +159,7 @@ function About() {
                 {/* sites MadeinCalais-Shore */}
                 <div className="image-grid">
                     <div className="image-container">
-                        <img className="mic" src={Mic} alt="screenshot site Madeincalais.fr"/>
+                        <img className="mic" src={Mic} alt="site web de l'association Made in Calais"/>
                         <div className="overlay">
                             <p>
                                 <a className="wordpress" href="https://madeincalais.fr/">
@@ -171,7 +171,7 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="shore" src={Shoredesign} alt="screenshot site Shoredesign.fr"/>
+                        <img className="shore" src={Shoredesign} alt="site web de Shore, artiste graffeur"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://shoredesign.fr/">
@@ -185,7 +185,7 @@ function About() {
 
                     {/* sites felicie colin- jsdebarras */}
                     <div className="image-container">
-                        <img className="fc" src={FelicieColin} alt="screenshot site feliciecolin.com"/>
+                        <img className="fc" src={FelicieColin} alt="site web de Félicie Colin, artiste bijoutière"/>
                         <div className="overlay">
                             <p>
                                 <a className="wordpress" href="https://feliciecolin.com/">
@@ -197,7 +197,7 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="jsd" src={Jsdebarras} alt="screenshot site jsdebarras.com"/>
+                        <img className="jsd" src={Jsdebarras} alt="site web de jsdebarras, sociéte de débarras"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://jsdebarras.com/">
@@ -210,7 +210,7 @@ function About() {
                     </div>
                     {/* sites maitre jurion - mamsweb */}
                     <div className="image-container">
-                        <img className="kj" src={KJ} alt="screenshot site maitrekevinjurion.fr"/>
+                        <img className="kj" src={KJ} alt="site web de Maitre Jurion Kevin, Avocat au barreau de Bordeaux"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://maitrekevinjurion.fr/">
@@ -222,7 +222,7 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="mamsweb" src={Mamsweb} alt="screenshot site mamswebconception.fr"/>
+                        <img className="mamsweb" src={Mamsweb} alt="site web MAMSWEB Conception, Aurore Budzik freelance"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://mamswebconception.fr/">
@@ -235,7 +235,7 @@ function About() {
                     </div>
                     {/* sites potfolio - interhop */}
                     <div className="image-container">
-                        <img className="ab" src={ABPortfolio} alt="screenshot portfolio"/>
+                        <img className="ab" src={ABPortfolio} alt="site web Portfolio de Aurore Budzik "/>
                         <div className="overlay">
                             <p>
                                 <a className="github" href="https://github.com/abdzk/pba.git">
@@ -248,7 +248,7 @@ function About() {
                         </div>
                     </div>
                     <div className="image-container">
-                        <img className="interhop" src={Interhop} alt="screenshot interhop association version test"/>
+                        <img className="interhop" src={Interhop} alt="Site web interhop association version test"/>
                         <div className="overlay">
                             <p>
                                 <a className="link" href="https://easyappointments-test.interhop.org/">
@@ -317,6 +317,9 @@ function About() {
 
             {/* Section Contact */}
             <section id="contact" className="section-contact">
+                <Helmet>
+                    <link rel="canonical" href="https://aurorebudzik.fr/#contact" />
+                </Helmet>
                 <Contact/>
             </section>
 

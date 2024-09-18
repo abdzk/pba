@@ -1,7 +1,6 @@
-// src/components/ParticleBackground.js
-import React, { useEffect } from 'react';
-import './ParticleBackground.css'; // Assurez-vous que ce fichier est dans le même répertoire que ce composant
 
+import React, { useEffect } from 'react';
+import './ParticleBackground.css';
 function ParticleBackground() {
     useEffect(() => {
         const script = document.createElement('script');
